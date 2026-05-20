@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RED PRINT — L'accompagnement business</title>
+<meta name="description" content="Pendant que 99% jugent, j'ai généré plus de 1M€. Rejoins Red Print, l'accompagnement business qui donne de vrais résultats.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0a0a0a; color:#fff; font-family:'Inter',sans-serif; line-height:1.6; overflow-x:hidden; }
+.accent { color:#e8192c; }
+
+/* LOGO */
+.logo-wrap { text-align:center; padding:52px 24px 0; }
+.logo {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(52px,10vw,110px);
+  letter-spacing:0.18em;
+  color:#fff;
+  line-height:1;
+  display:inline-block;
+}
+.logo .slash { color:#e8192c; margin:0 6px; font-size:0.7em; vertical-align:middle; }
+.logo-sub { font-size:12px; letter-spacing:0.35em; color:#333; text-transform:uppercase; margin-top:6px; font-family:'Inter',sans-serif; }
+
+/* HERO */
+.hero { text-align:center; padding:36px 24px 48px; max-width:900px; margin:0 auto; }
+.hero h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(38px,7.5vw,86px); line-height:1.0; text-transform:uppercase; margin-bottom:20px; }
+.hero p { font-size:16px; color:#777; margin-bottom:36px; }
+
+/* STATS */
+.stats-bar { display:flex; justify-content:center; gap:56px; margin:32px auto; flex-wrap:wrap; }
+.stat { text-align:center; }
+.stat-num { font-family:'Bebas Neue',sans-serif; font-size:52px; color:#e8192c; line-height:1; display:block; }
+.stat-label { font-size:11px; color:#555; text-transform:uppercase; letter-spacing:0.1em; margin-top:4px; }
+
+.video-wrapper { max-width:380px; margin:0 auto 40px; border-radius:16px; overflow:hidden; border:1px solid #1e1e1e; background:#000; }
+.video-wrapper iframe { display:block; width:100%; height:675px; border:none; }
+
+.cta-btn { display:inline-block; background:#e8192c; color:#fff; font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.08em; padding:18px 52px; border-radius:6px; cursor:pointer; border:none; text-decoration:none; transition:background .2s,transform .15s,box-shadow .2s; box-shadow:0 0 0 rgba(232,25,44,0); }
+.cta-btn:hover { background:#c51224; transform:scale(1.03); box-shadow:0 8px 32px rgba(232,25,44,0.35); }
+
+.divider { border:none; border-top:1px solid #131313; }
+
+.section { max-width:900px; margin:0 auto; padding:64px 24px; text-align:center; }
+.section-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(30px,5vw,58px); text-transform:uppercase; line-height:1.08; margin-bottom:12px; }
+.section-sub { font-size:15px; color:#555; max-width:520px; margin:0 auto 40px; }
+
+/* GALLERY */
+.gallery-section { padding:64px 0; }
+.gallery-header { text-align:center; padding:0 24px 36px; }
+
+.scroll-row { overflow:hidden; position:relative; margin-bottom:14px; }
+.scroll-row::before,.scroll-row::after { content:''; position:absolute; top:0; bottom:0; width:100px; z-index:2; pointer-events:none; }
+.scroll-row::before { left:0; background:linear-gradient(to right,#0a0a0a,transparent); }
+.scroll-row::after  { right:0; background:linear-gradient(to left,#0a0a0a,transparent); }
+
+.scroll-track { display:flex; gap:14px; width:max-content; }
+.row-left  { animation:scrollLeft  35s linear infinite; }
+.row-right { animation:scrollRight 42s linear infinite; }
+.scroll-track:hover { animation-play-state:paused; }
+@keyframes scrollLeft  { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+@keyframes scrollRight { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
+
+.img-card { flex-shrink:0; width:200px; border-radius:12px; overflow:hidden; border:1px solid #1e1e1e; background:#111; cursor:pointer; transition:transform .2s,border-color .2s; }
+.img-card:hover { transform:scale(1.05); border-color:#e8192c; }
+.img-card img { width:100%; height:200px; object-fit:cover; display:block; }
+.img-card .img-label { padding:8px 10px; font-size:11px; color:#555; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; }
+
+/* CHECKLIST */
+.checklist { list-style:none; max-width:500px; margin:0 auto 44px; text-align:left; }
+.checklist li { display:flex; align-items:flex-start; gap:14px; padding:14px 0; border-bottom:1px solid #131313; font-size:16px; color:#ccc; }
+.check-icon { width:22px; height:22px; background:#e8192c; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:2px; }
+.check-icon svg { width:12px; height:12px; }
+
+/* FEATURES */
+.features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; margin-bottom:44px; }
+.feature-card { background:#111; border:1px solid #1e1e1e; border-radius:12px; padding:24px 18px; text-align:left; transition:border-color .2s,transform .2s; }
+.feature-card:hover { border-color:#e8192c33; transform:translateY(-3px); }
+.feature-card .icon { width:42px; height:42px; background:rgba(232,25,44,.1); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+.feature-card h3 { font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:.04em; margin-bottom:8px; }
+.feature-card p { font-size:13px; color:#555; line-height:1.6; }
+
+/* STORY */
+.story { text-align:left; max-width:620px; margin:0 auto 40px; }
+.story p { font-size:16px; color:#999; margin-bottom:18px; line-height:1.8; }
+.story strong { color:#fff; }
+.red-block { background:#e8192c; border-radius:12px; padding:32px 28px; max-width:680px; margin:0 auto; text-align:left; }
+.red-block p { font-size:16px; color:rgba(255,255,255,.9); line-height:1.8; margin-bottom:10px; }
+.red-block p:last-child { margin:0; }
+.red-block strong { color:#fff; }
+
+/* FAQ */
+.faq { max-width:640px; margin:0 auto; text-align:left; }
+.faq-item { border-bottom:1px solid #161616; }
+.faq-q { width:100%; background:none; border:none; color:#fff; font-size:15px; font-family:'Inter',sans-serif; font-weight:500; padding:20px 0; display:flex; justify-content:space-between; align-items:center; cursor:pointer; text-align:left; gap:12px; }
+.faq-arrow { font-size:22px; color:#e8192c; flex-shrink:0; transition:transform .25s; }
+.faq-a { font-size:14px; color:#666; line-height:1.7; max-height:0; overflow:hidden; transition:max-height .35s ease,padding .25s; }
+.faq-item.open .faq-a { max-height:200px; padding-bottom:20px; }
+.faq-item.open .faq-arrow { transform:rotate(45deg); }
+
+/* FINAL CTA */
+.final-cta { text-align:center; padding:88px 24px; background:#0d0d0d; border-top:1px solid #131313; }
+.final-cta h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(36px,6vw,72px); margin-bottom:14px; text-transform:uppercase; }
+.final-cta p { color:#666; margin-bottom:36px; font-size:15px; }
+
+footer { background:#070707; text-align:center; padding:32px 24px; font-size:12px; color:#2a2a2a; border-top:1px solid #0f0f0f; }
+
+/* LIGHTBOX */
+.lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.93); z-index:999; align-items:center; justify-content:center; cursor:pointer; }
+.lightbox.active { display:flex; }
+.lightbox img { max-width:92vw; max-height:90vh; border-radius:10px; object-fit:contain; }
+.lightbox-close { position:absolute; top:20px; right:24px; font-size:32px; color:#fff; cursor:pointer; }
+
+/* FADE IN */
+.fade-in { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+@media(max-width:480px){
+  .logo { font-size:clamp(42px,13vw,80px); }
+  .stats-bar{gap:20px;}
+  .stat-num{font-size:38px;}
+  .video-wrapper iframe{height:520px;}
+  .img-card{width:160px;}
+  .img-card img{height:160px;}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGO -->
+<div class="logo-wrap fade-in">
+  <div class="logo">RED<span class="slash">/</span>PRINT</div>
+  <div class="logo-sub">L'accompagnement business</div>
+</div>
+
+<!-- HERO -->
+<div class="hero fade-in">
+  <h1>Pendant que 99% jugent,<br>j'ai généré plus de <span class="accent">1M€.</span></h1>
+  <p>Regarde la vidéo complète pour comprendre comment</p>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num" data-target="1000000" data-prefix="+" data-suffix="M€" data-divider="1000000">+1M€</span>
+      <div class="stat-label">Générés</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="50" data-prefix="+" data-suffix="">+50</span>
+      <div class="stat-label">Élèves formés</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-target="15230" data-prefix="$" data-suffix="" data-thousands="1">$15 230</span>
+      <div class="stat-label">Record élève / mois</div>
+    </div>
+  </div>
+
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/0FC-jI8sQ5c?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Red Print"></iframe>
+  </div>
+
+  <a href="#apply" class="cta-btn">POSTULE MAINTENANT</a>
+</div>
+
+<hr class="divider">
+
+<!-- GALERIE RÉSULTATS -->
+<div class="gallery-section fade-in">
+  <div class="gallery-header">
+    <div class="section-title">Les résultats de <span class="accent">mes élèves</span></div>
+    <div class="section-sub">Des chiffres réels. Des preuves réelles.</div>
+  </div>
+  <div class="scroll-row">
+    <div class="scroll-track row-left" id="row1"></div>
+  </div>
+  <div class="scroll-row" style="margin-top:14px">
+    <div class="scroll-track row-right" id="row2"></div>
+  </div>
+  <div style="text-align:center;margin-top:44px">
+    <a href="#apply" class="cta-btn">POSTULE MAINTENANT</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CE QUE C'EST -->
+<div class="section fade-in">
+  <div class="section-title">Red Print, <span class="accent">c'est :</span></div>
+  <div class="section-sub">Un système d'accompagnement concret pour construire ton business et générer tes premiers revenus.</div>
+  <ul class="checklist">
+    <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Un programme structuré, étape par étape</li>
+    <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Un suivi personnalisé avec des experts qui chiffrent</li>
+    <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Une communauté active 24h/24</li>
+    <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Des résultats concrets dès les premières semaines</li>
+  </ul>
+  <a href="#apply" class="cta-btn">POSTULE MAINTENANT</a>
+</div>
+
+<hr class="divider">
+
+<!-- FEATURES -->
+<div class="section fade-in">
+  <div class="section-title">Ce que tu obtiens <span class="accent">en rejoignant</span></div>
+  <div class="section-sub">Tout ce qu'il faut pour passer à l'action et ne plus être seul.</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8192c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h3>Discussion Privée</h3>
+      <p>Accès direct pour tes questions et progresser plus vite.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8192c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <h3>Coachings Live</h3>
+      <p>2 sessions de groupe par semaine. Réponses claires et directes.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8192c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Communauté</h3>
+      <p>Entoure-toi de personnes qui avancent et partagent leurs résultats.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8192c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      <h3>Accès Complet</h3>
+      <p>Tous les modules Red Print + mises à jour incluses.</p>
+    </div>
+  </div>
+  <a href="#apply" class="cta-btn">POSTULE MAINTENANT</a>
+</div>
+
+<hr class="divider">
+
+<!-- STORY -->
+<div class="section fade-in">
+  <div class="section-title">J'ai démarré au <span class="accent">même stade que toi.</span></div>
+  <div class="story">
+    <p>Peu de ressources, aucune direction claire. J'ai tout tenté — sans résultats pendant longtemps.</p>
+    <p>Jusqu'au jour où j'ai trouvé la méthode qui a tout changé. <strong>Quelques mois après, je voyais mes premiers vrais résultats.</strong></p>
+    <p>Aujourd'hui, j'accompagne des dizaines de personnes avec ce même système — un système que j'applique encore moi-même chaque jour.</p>
+  </div>
+  <div style="margin-top:36px">
+    <div class="red-block">
+      <p><strong>Red Print, c'est pas un cours théorique.</strong></p>
+      <p>C'est le plan exact que j'aurais voulu avoir au départ. Pas de détours inutiles — juste ce qui fonctionne, dans l'ordre où ça fonctionne.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- FAQ -->
+<div class="section fade-in" id="apply">
+  <div class="section-title">FAQ</div>
+  <div class="section-sub">Les questions les plus fréquentes.</div>
+  <div class="faq">
+    <div class="faq-item open">
+      <button class="faq-q" onclick="toggleFaq(this)">Pour qui est fait Red Print ?<span class="faq-arrow">+</span></button>
+      <div class="faq-a">Pour les personnes déterminées à construire leur business et changer de situation. Si tu cherches la liberté de travailler quand et d'où tu veux, tu es au bon endroit.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">J'ai peu de temps libre, est-ce que ça marche ?<span class="faq-arrow">+</span></button>
+      <div class="faq-a">Red Print est conçu pour les personnes avec un emploi du temps chargé. 1 à 2h par jour suffisent pour progresser à ton rythme.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Y a-t-il un coaching inclus ?<span class="faq-arrow">+</span></button>
+      <div class="faq-a">Oui. Tu peux poser tes questions 24h/24. 2 sessions live sont organisées chaque semaine avec des experts.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Et si je n'obtiens pas de résultats ?<span class="faq-arrow">+</span></button>
+      <div class="faq-a">Si tu appliques les étapes et participes activement, les résultats suivent. On t'accompagne jusqu'à ce que tu y arrives.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta fade-in">
+  <h2>Rejoins <span class="accent">Red Print</span><br>maintenant</h2>
+  <p>Réserve ton appel découverte gratuit et commence à construire ton business dès aujourd'hui.</p>
+  <a href="#" class="cta-btn">POSTULE MAINTENANT</a>
+</div>
+
+<footer>
+  <p style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.3em;color:#1e1e1e;margin-bottom:12px;">RED PRINT</p>
+  <p>© 2026 — Tous droits réservés</p>
+  <p style="margin-top:10px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6;">Avertissement : Les résultats présentés sont des exemples individuels et ne constituent pas une garantie. Chaque parcours est unique et dépend de l'implication de chacun.</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close">✕</div>
+  <img id="lightbox-img" src="" alt="Résultat élève">
+</div>
+
+<script>
+// ---- GALLERY ----
+const images = [
+  { src:"assets/1779226892406_image.png", label:"234K vues Instagram" },
+  { src:"assets/1779226895554_image.png", label:"Trafic ×10" },
+  { src:"assets/1779226897771_image.png", label:"Explosion trafic" },
+  { src:"assets/1779226900013_image.png", label:"$1 373 gains" },
+  { src:"assets/1779226902061_image.png", label:"Contrat signé" },
+  { src:"assets/1779226908185_image.png", label:"$3 684 en 1 jour" },
+  { src:"assets/1779226910557_image.png", label:"Contrat Docusign" },
+  { src:"assets/1779226913589_image.png", label:"$3 555 today" },
+  { src:"assets/1779226916404_image.png", label:"$5 991 en 1 mois" },
+  { src:"assets/1779226919071_image.png", label:"Contrat signé Dubai" },
+];
+
+function makeCard(img) {
+  const div = document.createElement('div');
+  div.className = 'img-card';
+  div.innerHTML = `<img src="${img.src}" alt="${img.label}" loading="lazy"><div class="img-label">${img.label}</div>`;
+  div.onclick = () => openLightbox(img.src);
+  return div;
+}
+function buildRow(id, arr) {
+  const track = document.getElementById(id);
+  [...arr, ...arr].forEach(img => track.appendChild(makeCard(img)));
+}
+buildRow('row1', images);
+buildRow('row2', [...images].reverse());
+
+// ---- LIGHTBOX ----
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+// ---- COUNTER ANIMATION ----
+function formatNum(val, prefix, suffix, thousands, divider) {
+  let n = divider ? (val / divider) : val;
+  if (divider) return prefix + n.toFixed(0) + suffix;
+  if (thousands) return prefix + Math.round(n).toLocaleString('fr-FR').replace(/\u202f/g,' ') + suffix;
+  return prefix + Math.round(n) + suffix;
+}
+
+function animateCounter(el) {
+  const target    = parseInt(el.dataset.target);
+  const prefix    = el.dataset.prefix  || '';
+  const suffix    = el.dataset.suffix  || '';
+  const thousands = el.dataset.thousands === '1';
+  const divider   = el.dataset.divider ? parseInt(el.dataset.divider) : null;
+  const duration  = 2000;
+  const start     = performance.now();
+  function step(now) {
+    const elapsed  = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease     = 1 - Math.pow(1 - progress, 3);
+    const current  = Math.round(ease * target);
+    el.textContent = formatNum(current, prefix, suffix, thousands, divider);
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = formatNum(target, prefix, suffix, thousands, divider);
+  }
+  requestAnimationFrame(step);
+}
+
+// ---- INTERSECTION OBSERVER ----
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      entry.target.querySelectorAll('[data-target]').forEach(el => {
+        if (!el.dataset.animated) {
+          el.dataset.animated = '1';
+          animateCounter(el);
+        }
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ---- FAQ ----
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
