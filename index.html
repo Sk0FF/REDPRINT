@@ -243,6 +243,53 @@ footer { background:#070707; text-align:center; padding:32px 24px; font-size:12p
   flex-shrink:0;
 }
 @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:0.5} }
+
+/* PROOF GRID */
+.proof-grid-section { padding:64px 24px; max-width:960px; margin:0 auto; text-align:center; }
+.proof-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin:40px auto; }
+.proof-thumb {
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  background:#111;
+  border:1px solid #1e1e1e;
+  cursor:pointer;
+  transition:transform .2s, border-color .2s;
+  aspect-ratio:9/12;
+}
+.proof-thumb:hover { transform:scale(1.03); border-color:#e8192c; }
+.proof-thumb img { width:100%; height:100%; object-fit:cover; display:block; filter:brightness(0.85); }
+.proof-thumb .play-icon {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.proof-thumb .play-circle {
+  width:44px; height:44px;
+  background:rgba(232,25,44,0.85);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(4px);
+}
+.proof-thumb .caption {
+  position:absolute;
+  bottom:0; left:0; right:0;
+  background:linear-gradient(transparent, rgba(0,0,0,0.85));
+  padding:20px 10px 10px;
+  font-size:11px;
+  font-weight:600;
+  color:#fff;
+  text-align:center;
+  line-height:1.4;
+}
+.proof-row-cta { margin:20px 0 8px; }
+@media(max-width:600px){
+  .proof-grid { grid-template-columns:repeat(2,1fr); }
+}
 </style>
 </head>
 <body>
@@ -326,25 +373,85 @@ footer { background:#070707; text-align:center; padding:32px 24px; font-size:12p
 
 <hr class="divider">
 
-<!-- GALERIE RÉSULTATS -->
-<div class="gallery-section fade-in">
-  <div class="gallery-header">
-    <div class="section-title">Les résultats de <span class="accent">mes élèves</span></div>
-    <div class="section-sub">Des chiffres réels. Des preuves réelles.</div>
+
+<!-- PROOF GRID -->
+<div class="proof-grid-section fade-in">
+  <div class="section-title">Tous Nos Membres <span class="accent">Gagnent.</span></div>
+  <div class="section-sub">+50 élèves · plusieurs claps en 2025</div>
+
+  <!-- Row 1 -->
+  <div class="proof-grid">
+    <div class="proof-thumb" onclick="openLightbox('assets/1779226892406_image.png')">
+      <img src="assets/1779226892406_image.png" alt="234K vues">
+      <div class="play-icon"><div class="play-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="caption">234K Vues Instagram</div>
+    </div>
+    <div class="proof-thumb" onclick="openLightbox('assets/1779226895554_image.png')">
+      <img src="assets/1779226895554_image.png" alt="Trafic x10">
+      <div class="play-icon"><div class="play-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="caption">Explosion du Trafic</div>
+    </div>
+    <div class="proof-thumb" onclick="openLightbox('assets/1779226900013_image.png')">
+      <img src="assets/1779226900013_image.png" alt="$1373">
+      <div class="play-icon"><div class="play-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="caption">$1,373 — Premier Mois</div>
+    </div>
+    <div class="proof-thumb" onclick="openLightbox('assets/1779226902061_image.png')">
+      <img src="assets/1779226902061_image.png" alt="Contrat signé">
+      <div class="play-icon"><div class="play-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="caption">Contrat Signé</div>
+    </div>
   </div>
-  <div class="scroll-row">
-    <div class="scroll-track row-left" id="row1"></div>
+  <div class="proof-row-cta">
+    <a href="https://whop.com/joined/red-print/" target="_blank" class="cta-btn">POSTULE MAINTENANT</a>
   </div>
-  <div class="scroll-row" style="margin-top:14px">
-    <div class="scroll-track row-right" id="row2"></div>
+
+  <!-- Row 2 -->
+  <div class="proof-grid" style="margin-top:8px">
+    <div class="proof-thumb" onclick="openLightbox('assets/1779226908185_image.png')">
+      <img src="assets/1779226908185_image.png" alt="$3684">
+      <div class="play-icon"><div class="play-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="caption">$3,684 En 1 Jour</div>
+    </div>
+    <div class="proof-thumb" onclick="openLightbox('assets/1779226910557_image.png')">
+      <img src="assets/1779226910557_image.png" alt="Contrat Docusign">
+      <div class="play-icon"><div class="play-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="caption">Contrat Docusign Signé</div>
+    </div>
+    <div class="proof-thumb" onclick="openLightbox('assets/1779226913589_image.png')">
+      <img src="assets/1779226913589_image.png" alt="$3555">
+      <div class="play-icon"><div class="play-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="caption">$3,555 — Aujourd'hui</div>
+    </div>
+    <div class="proof-thumb" onclick="openLightbox('assets/1779226916404_image.png')">
+      <img src="assets/1779226916404_image.png" alt="$5991">
+      <div class="play-icon"><div class="play-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="caption">$5,991 En 1 Mois</div>
+    </div>
   </div>
-  <div style="text-align:center;margin-top:44px">
+  <div class="proof-row-cta">
+    <a href="https://whop.com/joined/red-print/" target="_blank" class="cta-btn">POSTULE MAINTENANT</a>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="proof-grid" style="margin-top:8px; grid-template-columns:repeat(2,1fr); max-width:480px; margin-left:auto; margin-right:auto;">
+    <div class="proof-thumb" onclick="openLightbox('assets/1779226919071_image.png')">
+      <img src="assets/1779226919071_image.png" alt="Dubai">
+      <div class="play-icon"><div class="play-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="caption">Contrat Signé — Dubai</div>
+    </div>
+    <div class="proof-thumb" onclick="openLightbox('assets/1779226897771_image.png')">
+      <img src="assets/1779226897771_image.png" alt="Trafic">
+      <div class="play-icon"><div class="play-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="caption">$3,000+ Générés</div>
+    </div>
+  </div>
+  <div class="proof-row-cta" style="margin-top:20px">
     <a href="https://whop.com/joined/red-print/" target="_blank" class="cta-btn">POSTULE MAINTENANT</a>
   </div>
 </div>
 
 <hr class="divider">
-
 <!-- CE QUE C'EST -->
 <div class="section fade-in">
   <div class="section-title">Red Print, <span class="accent">c'est :</span></div>
