@@ -20,6 +20,49 @@ body > *:not(#bg-canvas) { position:relative; z-index:1; }
 
 /* GLITCH */
 
+
+/* WATERMARK ON IMAGES */
+.wm-wrap { position:relative; display:contents; }
+.proof-thumb .wm {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  overflow:hidden;
+  border-radius:12px;
+  z-index:5;
+}
+.proof-thumb .wm span {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;
+  letter-spacing:0.2em;
+  color:rgba(255,255,255,0.18);
+  transform:rotate(-30deg);
+  white-space:nowrap;
+  text-shadow:0 1px 3px rgba(0,0,0,0.5);
+}
+/* Lightbox watermark */
+#lightbox .lb-wm {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  z-index:1001;
+}
+#lightbox .lb-wm span {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px,5vw,52px);
+  letter-spacing:0.25em;
+  color:rgba(255,255,255,0.15);
+  transform:rotate(-25deg);
+  white-space:nowrap;
+  text-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+
 /* STORY BG SECTION */
 .story-bg-section {
   position:relative;
@@ -366,7 +409,9 @@ footer { background:#070707; text-align:center; padding:32px 24px; font-size:12p
       <div class="play-circle"><div><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       <div class="caption">Contrat Signé</div>
     </div>
-  </div>
+  
+      <div class="wm"><span>RED PRINT</span></div>
+    </div>
   <div class="proof-grid">
     <div class="proof-thumb" onclick="openLightbox('assets/stat_9217.png')" style="position:relative;">
       <img src="assets/stat_9217.png" alt="$9217">
@@ -394,7 +439,9 @@ footer { background:#070707; text-align:center; padding:32px 24px; font-size:12p
       <div class="play-circle"><div><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       <div class="caption">$5,991 En 1 Mois</div>
     </div>
-  </div>
+  
+      <div class="wm"><span>RED PRINT</span></div>
+    </div>
   <div class="proof-grid" style="grid-template-columns:repeat(2,1fr);max-width:440px;margin-left:auto;margin-right:auto;">
     <div class="proof-thumb" onclick="openLightbox('assets/1779226919071_image.png')">
       <img src="assets/1779226919071_image.png" alt="Dubai">
@@ -406,7 +453,9 @@ footer { background:#070707; text-align:center; padding:32px 24px; font-size:12p
       <div class="play-circle"><div><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
       <div class="caption">$3,000+ Générés</div>
     </div>
-  </div>
+  
+      <div class="wm"><span>RED PRINT</span></div>
+    </div>
 </div>
 
 <hr class="divider">
@@ -523,7 +572,8 @@ footer { background:#070707; text-align:center; padding:32px 24px; font-size:12p
 <!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:999;align-items:center;justify-content:center;cursor:pointer;">
   <div style="position:absolute;top:20px;right:24px;font-size:32px;color:#fff;">✕</div>
-  <img id="lightbox-img" src="" style="max-width:92vw;max-height:90vh;border-radius:10px;object-fit:contain;">
+  <div class="lb-wm"><span>RED PRINT</span></div>
+  <img id="lightbox-img" src="" style="max-width:92vw;max-height:90vh;border-radius:10px;object-fit:contain;position:relative;z-index:1000;">
 </div>
 
 <script>
